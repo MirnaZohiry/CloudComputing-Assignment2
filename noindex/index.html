@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Registeration Page</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+</head>
+
+<body>
+	<h1 class="head">Start by Keeping Track of Your Workload </h1> 
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form" action="../registration.php" method="post">
+				<input type="text" placeholder="Username" name="username_field" />
+				<input type="text" placeholder="Email" name="email_field"/>
+				<input type="password" placeholder="Password " name="password_field"/>
+				<button type="submit" name="register">Create</button>
+				<p class="message">Already Registered? <a href="#">Login</a></p>
+			</form>
+
+			<form class="login-form" action="../loginform.php" method="post">
+				<input type="text" placeholder="Email" name="email_field"/>
+				<input type="password" placeholder="Password" name="password_field"/>
+				<button type="submit" name="login">Login</button>
+				<p class="message">Not Registered? <a href="#">Register</a></p>
+			</form>
+
+		</div>	
+	</div>
+
+<script>
+//Animate between register and login
+$('.message a').click(function(){
+	$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});	
+</script>
+
+
+<script>
+//Disable the back button in the browser
+$(document).ready(function() {
+    window.history.pushState('index.php', "", window.location.href);        
+    window.onpopstate = function() {
+        window.history.pushState('index.php', "", window.location.href);
+    };
+});
+	
+</script>
+
+</body>
+</html>
